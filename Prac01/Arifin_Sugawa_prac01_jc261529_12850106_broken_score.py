@@ -1,10 +1,9 @@
 """
 CP1404/CP5632 - Practical
-Broken program to determine score status
+Arifin Sugawa Jc261529 12850106
 """
 
 
-# TODO: Fix this! (Done)
 
 def main():
     score = float(input("Enter score: "))

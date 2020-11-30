@@ -1,10 +1,3 @@
-"""
-CP1404/CP5632 - Practical
-Broken program to determine score status
-"""
-
-
-# TODO: Fix this! (Done)
 
 def main():
     score = float(input("Input score: "))

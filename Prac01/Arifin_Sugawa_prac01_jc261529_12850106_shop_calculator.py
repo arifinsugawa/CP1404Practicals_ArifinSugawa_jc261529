@@ -1,14 +1,6 @@
 """
 Shop Calculator
-The output should look something like (bold text represents user input):
-Number of items: 3
-Price of item: 100
-Price of item: 35.56
-Price of item: 3.24
-Total price for 3 items is $124.92
-+ Error checking (input validation loop):
-(Do this after you have completed the above program.)
-If the number of items is less than zero, the message "Invalid number of items!" should be displayed and this quantity must be re-entered by the user until it is valid.
+Arifin Sugawa Jc261529 12850106
 """
 total_price = 0
 item_prices = []
