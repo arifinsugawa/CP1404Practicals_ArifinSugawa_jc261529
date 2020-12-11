@@ -1,12 +1,20 @@
-STATE_NAMES = {"QLD": "Queensland", "NSW": "New South Wales",
-               "NT": "Northern Territory", "WA": "Western Australia",
-               "ACT": "Australian Capital Territory", "VIC": "Victoria",
-               "TAS": "Tasmania"}
+"""
+CP1404/CP5632 Practical
+State names in a dictionary
+File needs reformatting
+"""
 
-state = input("Enter a state name: ").upper()
-while state != "":
-    if state in STATE_NAMES:
-        print(state, "is", STATE_NAMES[state])
+CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT" : "Northern Territory", "WA" : "Western Australia", "ACT": "Australian Capital Territory", "VIC": "Victoria", "TAS": "Tasmania"}
+print(CODE_TO_NAME)
+
+state_code = input("Enter short state: ").upper()
+while state_code != "":
+    if state_code in CODE_TO_NAME:
+        print(state_code, "is", CODE_TO_NAME[state_code])
     else:
-        print("Invalid state name")
-    state = input("Enter a state name: ").upper()
+        print("Invalid short state")
+    state_code = input("Enter short state: ").upper()
+
+for state , name in CODE_TO_NAME.items():
+    print('{:3} is {}'.format(state, name))
+

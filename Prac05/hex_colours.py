@@ -1,13 +1,12 @@
-COLOUR_CODES = {"AliceBlue": "#f0f8ff", "AntiqueWhite": "#faebd7",
-                "AntiqueWhite1": "#ffefdb", "AntiqueWhite2": "#eedfcc",
-                "AntiqueWhite3": "#cdc0b0", "AntiqueWhite4": "#8b8378",
-                "aquamarine1": "#7fffd4", "aquamarine2": "#76eec6",
-                "aquamarine4": "#458b74", "azure1": "#f0ffff",
-                "azure2": "#e0eeee", "azure3": "#c1cdcd", "azure4": "#838b8b",
-                "beige": "#f5f5dc", "bisque1": "#ffe4c4"}
+#https://www.color-hex.com/color-names.html
+NAME_TO_CODE = {"ALICEBLUE": "#f0f8ff", "AZURE1": "#f0fff", "BEIGE": "#f5f5dc", "ANTIQUEWHITE": "#faebd7", "AQUAMARINE1": "#7fffd4", "BROWN": "#a52a2a", "CADETBLUE": "#98f5ff", "CORAL": "ff7f50", "CORNFLOWERBLUE": "6495ed", "DARKGREEN": "#005400"}
 
-colour_name = input("Please enter colour name: ")
-while colour_name != "":
-    print("The code for \"{}\" is {}".format(colour_name,
-                                             COLOUR_CODES.get(colour_name)))
-    colour_name = input("Please enter colour name: ")
+color = input("Enter Color Name :").upper()
+
+while color != "":
+    if color in NAME_TO_CODE:
+        print(NAME_TO_CODE[color])
+    else:
+        print("Invalid Color name")
+    color = input("Enter Color Name :").upper()
+
