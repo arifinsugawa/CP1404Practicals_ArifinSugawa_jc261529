@@ -1,32 +1,18 @@
 class ProgrammingLanguage:
+    """Represent a programming language object."""
 
-    def __init__(self, name, typing, reflection, year):
+    def __init__(self,name,ptype,reflection,year):
         self.name = name
-        self.typing = typing
+        self.ptype = ptype
         self.reflection = reflection
         self.year = year
 
-    def __str__(self):
-        return "{}, {} Typing, Reflection={}, First appeared in {}".format(
-            self.name, self.typing, self.reflection, self.year)
-
     def is_dynamic(self):
-        return self.typing == "Dynamic"
+        if self.ptype.lower() == "static":
+            return False
+        else:
+            return True
 
+    def __str__(self):
+        return "{},{} typing,reflection={},First appeared in {}".format(self.name,self.ptype,self.reflection,self.year)
 
-def run_tests():
-    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
-    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
-    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
-
-    languages = [ruby, python, visual_basic]
-    print(python)
-
-    print("Dynamically Input languages:")
-    for language in languages:
-        if language.is_dynamic():
-            print(language.name)
-
-
-if __name__ == "__main__":
-    run_tests()

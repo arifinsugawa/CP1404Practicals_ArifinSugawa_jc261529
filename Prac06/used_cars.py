@@ -1,8 +1,12 @@
-from Prac06.car import Car
+"""CP1404/CP5632 Practical - Client code to use the Car class."""
+# Note that the import has a folder (module) in it.
+
+from prac_06.car import Car
 
 
 def main():
-    my_car = Car("My car", 180)
+    """Demo test code to show how to use car class."""
+    my_car = Car("my_car",180)
     my_car.drive(30)
     print("fuel =", my_car.fuel)
     print("odo =", my_car.odometer)
@@ -11,11 +15,17 @@ def main():
     print("Car {}, {}".format(my_car.fuel, my_car.odometer))
     print("Car {self.fuel}, {self.odometer}".format(self=my_car))
 
-    limo = Car("Limo", 100)
+    #Create a new car object limo
+    limo = Car("limo",100)
+    #add 20 more units of fuel 
     limo.add_fuel(20)
-    print(limo.fuel)
+    #print amount of fuel
+    print("fuel =", limo.fuel)
+    #Attmpe to dive the car 115km 
     limo.drive(115)
-    print(limo.odometer)
-
+    #print car odometer
+    print("Odometer = ", limo.odometer)
+    #print car
+    print(limo)
 
 main()
