@@ -1,0 +1,27 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_num 
+            font_size: 24
+            text: ''
+        BoxLayout:
+            size_hint_x: 0.2
+            orientation: 'vertical'
+            Button:
+                text: "Up"
+                on_press: app.handle_change(1)
+            Button:
+                text: "Down"
+                on_press: app.handle_change(-1)
+    BoxLayout:
+        orientation: 'horizontal' 
+        Button: 
+            text: 'Convert Celsius to Fahrenheit'
+            on_press: app.convert('F')
+        Button:
+            text: 'Convert Fahrenheit to Celsius'
+            on_press: app.convert('C')
+    Label:
+        text: app.message 

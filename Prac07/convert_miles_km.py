@@ -1,38 +1,39 @@
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.properties import StringProperty
+from kivy.core.window import Window
+from kivy.app import StringProperty
 
-FACTOR_MILES_TO_KM = 1.60934
+CONST_milesConvert = 1.609344 
 
-
-class MilesConverterApp(App):
-    output_km = StringProperty()
+class ConvertMilesToKMApp(App):
+    """Kivy App for coverting Miles to KM."""
+    message = StringProperty()
 
     def build(self):
-        self.title = "Convert Miles to Kilometres"
+        Window.size = (350,250)
+        self.title = "Convert Miles to KM"
         self.root = Builder.load_file('convert_miles_km.kv')
-        return self.root
-
-    def handle_calculate(self, text):
-        print("handle calculate")
-        miles = self.convert_to_number(text)
-        self.update_result(miles)
-
-    def handle_increment(self, text, change):
-        print("handle increment")
-        miles = self.convert_to_number(text) + change
-        self.root.ids.input_miles.text = str(miles)
-
-    def update_result(self, miles):
-        print("update")
-        self.output_km = str(miles * FACTOR_MILES_TO_KM)
-
-    @staticmethod
-    def convert_to_number(text):
+        return self.root 
+    def get_input(self):
         try:
-            return float(text)
+            num = int(self.root.ids.input_number.text) 
         except ValueError:
-            return 0.0
+            num = 0
+        
+        if num < 0:
+            return 0
+        return num
 
+    def handle_convert(self):
+        user_input = self.get_input()
+        self.message = "{:.3f}".format(user_input*CONST_milesConvert)
 
-MilesConverterApp().run()
+    def handle_change(self,num):
+        user_input = self.get_input()
+        if num + user_input < 0:
+            output = '0'
+        else:
+            output = str(num + user_input)
+
+        self.root.ids.input_number.text = output
+ConvertMilesToKMApp().run()
