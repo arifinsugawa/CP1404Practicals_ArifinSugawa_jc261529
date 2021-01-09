@@ -1,13 +1,10 @@
-from Prac08.taxi import Taxi
-
+from prac_08.taxi import Taxi 
 
 def main():
-    my_taxi = Taxi("Prius 1", 100)
-    my_taxi.drive(40)
-    print(my_taxi)
-    my_taxi.start_fare()
-    my_taxi.drive(100)
-    print(my_taxi)
-
+    new_taxi = Taxi('prius 1', 100) 
+    new_taxi.drive(40)
+    print(new_taxi)
+    new_taxi.start_fare()
+    print(new_taxi)
 
 main()
