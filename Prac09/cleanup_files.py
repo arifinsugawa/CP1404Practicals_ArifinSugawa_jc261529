@@ -1,23 +1,32 @@
 import os
 
-
-def main():
-
-    os.chdir('Lyrics')
-    for directory_name, subdirectories, filenames in os.walk('.'):
-
-        for filename in filenames:
-            new_name = get_fixed_filename(filename)
-            print("Renaming {} to {}".format(filename, new_name))
-
-            full_name = os.path.join(directory_name, filename)
-            new_name = os.path.join(directory_name, new_name)
-            os.rename(full_name, new_name)
-
-
 def get_fixed_filename(filename):
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    """Return a 'fixed' version of filename."""
+    UNDERSCORE = '_'
+    EMPTY_STRING = ''
+    new_name = EMPTY_STRING
+    prev_letter =  EMPTY_STRING
+    for letter in filename: 
+        if letter == ' ':
+            letter = UNDERSCORE
+        elif prev_letter.islower() and letter.isupper():
+            new_name += UNDERSCORE
+        
+        prev_letter = letter
+        new_name += letter
+
+    new_name = new_name.replace(".TXT", ".txt")
     return new_name
 
+def main():
+    """Process all subdirectories using os.walk()."""
+    os.chdir('Lyrics')
+    for directory_name, subdirectories, filenames in os.walk('.'):
+        path = os.path.join(os.getcwd(),directory_name)
+
+        for filename in filenames:
+            file_path = os.path.join(path,filename)
+            new_name = get_fixed_filename(filename)
+            os.rename(file_path, os.path.join(path,new_name))
 
 main()
